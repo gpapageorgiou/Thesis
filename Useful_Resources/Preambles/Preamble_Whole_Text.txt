@@ -1,0 +1,173 @@
+\RequirePackage{atbegshi}
+\AtBeginShipoutInit
+
+\makeatletter
+\let\HAR@checkdef\relax
+\let\citename\relax
+\let\citeyear\relax
+\let\bf\relax
+\makeatother
+
+% \usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage{placeins} % for \FloatBarrier
+\usepackage{makecell}
+\usepackage{dsfont}
+\usepackage{subcaption}
+
+
+
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\setstocksize{25cm}{18cm} % size van het papier, overruled het statement in documentclass
+\settrimmedsize{24cm}{17cm}{*}  % size ven het papier effectief in gebruik
+\settypeblocksize{18.5cm}{12.5cm}{*}
+\setlrmargins{2.5cm}{*}{0.8}          % left/right margins: {spine}{edge}{ratio}
+\setulmargins{2.5cm}{*}{1.2}          % upper/lower margins
+\settrims{5mm}{5mm}
+\checkandfixthelayout
+% \fixpdflayout
+
+\trimLmarks
+
+% \usepackage{geometry}
+
+% \usepackage[T1]{fontenc}
+% \usepackage{kpfonts}
+\setSingleSpace{1.1}
+\SingleSpacing
+\usepackage{calc}
+\usepackage[table]{xcolor}
+\usepackage{colortbl} % for \cellcolor
+\usepackage{eso-pic}
+
+\definecolor{chaptercolor}{gray}{0.7}
+% helper macros
+\newcommand\numlifter[1]{\raisebox{-2cm}[0pt][0pt]{\smash{#1}}}
+\newcommand\numindent{\kern37pt}
+\newlength\chaptertitleboxheight
+
+\makechapterstyle{hansen}{
+\copypagestyle{chapter}{plain}
+\makeoddfoot{chapter}{}{}{}
+\makeevenfoot{chapter}{}{}{}
+\renewcommand\printchaptername{\raggedleft}
+\renewcommand\printchapternum{%
+\begingroup%
+\leavevmode%
+\chapnumfont%
+\strut%
+\numlifter{\thechapter}%
+\numindent%
+\endgroup%
+}
+
+\renewcommand*{\printchapternonum}{%
+\vphantom{\begingroup%
+\leavevmode%
+\chapnumfont%
+\numlifter{\vphantom{9}}%
+\numindent%
+\endgroup}
+\afterchapternum}
+\setlength\midchapskip{0pt}
+\setlength\beforechapskip{0.5\baselineskip}
+\setlength{\afterchapskip}{3\baselineskip}
+\renewcommand\chapnumfont{%
+\fontsize{4cm}{0cm}%
+\bfseries%
+\sffamily%
+\color{chaptercolor}%
+}
+\renewcommand\chaptitlefont{%
+\normalfont%
+\huge%
+\bfseries%
+\raggedleft%
+}%
+\settototalheight\chaptertitleboxheight{%
+\parbox{\textwidth}{\chaptitlefont \strut bg\\bg\strut}}
+\renewcommand\printchaptertitle[1]{%
+\parbox[t][\chaptertitleboxheight][t]{\textwidth}{%
+%\microtypesetup{protrusion=false}% add this if you use microtype
+\chaptitlefont\strut ##1\strut}%
+}
+}
+
+\chapterstyle{hansen}
+\pagestyle{ruled}
+\makeevenhead {ruled}{\small\scshape\leftmark}{}{} % small caps
+\makeoddhead {ruled}{}{}{\small\rightmark}
+
+\nobibintoc
+
+\setsecnumdepth{subsection}
+
+\newcommand\chapimage{%
+\cleartoverso
+% \clearpage
+% \thispagestyle{empty}
+\AddToShipoutPictureBG*{
+\AtStockLowerLeft{%
+\includegraphics[width=18cm,height=25cm]{figures/Kapitel_links20.png}}%
+}
+% \cleardoublepage
+}
+
+%-- no punctuation after volume
+\DeclareFieldFormat[article]
+{volume}{{\textbf{#1}}}
+%-- puts number/issue between brackets
+\DeclareFieldFormat[article, inbook, incollection, inproceedings, misc, thesis, unpublished]
+{number}{\mkbibparens{#1}}
+%-- and then for articles directly the pages w/o any "pages" or "pp."
+\DeclareFieldFormat[article]
+{pages}{#1}
+%-- for some types replace "pages" by "p."
+\DeclareFieldFormat[inproceedings, incollection, inbook]
+{pages}{p. #1}
+%-- format 16(4):224--225 for articles
+\renewbibmacro*{volume+number+eid}{
+\printfield{volume}\printfield{number}\printunit{\addcolon}
+}
+
+\renewbibmacro{in:}{}
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}\isdot}
+
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}%
+  \setunit*{\addcomma\space}%
+  \iffieldundef{series}
+    {}
+    {\newunit
+     \printfield{series}%
+     \setunit{\addspace}}%
+  \usebibmacro{volume+number+eid}%
+  \setunit{\addspace}%
+  \usebibmacro{issue+date}%
+  \setunit{\addcolon\space}%
+  \usebibmacro{issue}%
+  \newunit}
+
+
+
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{subcaption}
+
+
+\let\oldrule=\rule
+\renewcommand{\rule}[1]{\oldrule{\linewidth}}
+
+\title{Bayesian Imputation of Missing Covariates}
+\def\dutchtitle{Bayesiaanse imputatie van ontbrekende covariabelen}
+\author{Nicole Stephanie Erler}
+\def\shortauthor{Nicole S. Erler}
+\date{2019} %onlt the year
+\def\widmung{To my family}

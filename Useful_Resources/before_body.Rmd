@@ -1,0 +1,61 @@
+---
+title: ''
+author: "Ed D. J. Berry"
+date: "25 July 2017"
+output: pdf_document
+classoption: twoside
+header-includes:
+   - \usepackage[none]{hyphenat}
+fontsize: 12pt
+linestretch: 1.5
+geometry: "left=4cm, right=3cm, top=2.5cm, bottom=2.5cm"
+---
+
+\pagenumbering{gobble}
+a
+\newpage
+
+The candidate confirms that the work submitted is their own and that appropriate credit has been given where reference has been made to the work of others.
+
+\vspace*{\stretch{0.1}}
+The data presented in Chapter 3 has been accepted for publication as:  
+  
+*Berry, E.D.J., Waterman, A.W., Baddeley, A.D., Hitch, G.J., & Allen, R.J. (2017). The limits of visual working memory in children: exploring prioritization and recency effects with sequential presentation* Developmental Psychology.
+  
+Only material produced by Ed D. J. Berry has been used in the thesis.
+
+
+\vfill
+This copy has been supplied on the understanding that it is copyright material and that no quotation from the thesis may be published without proper acknowledgement.
+  
+© 2017 The University of Leeds and Edward David John Berry
+
+
+\clearpage
+\vspace*{\stretch{1}}
+\begin{center}
+\begin{minipage}{.8\textwidth}
+\textit{Like the psychologists the physical scientist has to construe the world, and this business of construing in highly problematic. The world does not lie there before the scientist in ready-labelled pens and pre-constructed hierarchies: the scientist must start with a priori assumptions. The more philosophically sound these assumptions are the more empirically fruitful the work will be.}
+\newline
+\newline
+-- James Russell, \textit{Explaining Mental Life: Some Philosophical Issues in Psychology}
+\end{minipage}
+\end{center}
+\vspace{\stretch{3}}
+\clearpage
+
+&nbsp;
+
+\pagebreak
+
+# Acknowledgements
+
+I would like to thank blah blah
+
+\newpage
+
+
+# Abstract
+
+Some abstract text
+

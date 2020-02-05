@@ -1,0 +1,3 @@
+https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/
+
+https://github.com/yihui/tinytex/issues/126
