@@ -6,3 +6,13 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+
+
+% see https://stackoverflow.com/questions/45963505/coverpage-and-copyright-notice-before-title-in-r-bookdown
+% see https://tex.stackexchange.com/questions/258/what-is-the-difference-between-let-and-def
+\let\oldmaketitle\maketitle
+\AtBeginDocument{\let\maketitle\relax}
+
+\let\oldtitle\title
+
+\def\title{Joint Modeling for the Unexpected}

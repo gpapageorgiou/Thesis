@@ -1,9 +1,9 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
-date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output: 
+  bookdown::pdf_book:
+    includes:
+      before_body: titlepage.tex
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
